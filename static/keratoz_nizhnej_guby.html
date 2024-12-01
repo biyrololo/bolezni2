@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заболевания полости рта</title>
+    <style>
+        :root{
+            --green: rgb(0, 183, 165);
+        }
+        body {
+            margin: 0;
+        }
+        h1 {
+            text-align: center;
+            font-family: sans-serif;
+            background: var(--green);
+            color: white;
+            padding-block: 30px;
+            margin-top: 0;
+            cursor: pointer;
+        }
+        section {
+            position: relative;
+            width: min(80%, 1000px);
+            display: block;
+            margin: 0 auto;
+        }
+        img{
+            display: block;
+            margin: 0 auto;
+        }
+        @media(max-width: 800px) {
+            img{
+                width: 80%;
+            }
+        }
+        h2, h3, p {
+            font-family: sans-serif;
+        }
+        h2{
+            text-align: center;
+            font-size: 32px;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        Цифровой атлас периимплантитов и воспалительных заболеваний полости рта
+    </h1>
+
+    <div>
+        <img src="images/7.png" alt="">
+    </div>
+
+    <section>
+        <h2>Кератоз нижней губы</h2>
+        <h3>Диагноз</h3>
+        <p>
+            На фото кератоз на слизистой нижней губы у 55-летнего мужчины с 40-летним стажем употребления бездымного табака
+            <br><b>Под звездочкой</b>- бархатистый, складчатый участок слизистой с небольшой язвой в центре
+            <br><b>Белые стрелки</b>- показаны участки слизистой, которые при растяжении образовывают впадины
+
+            <br><b>Черные стрелки</b> - отмечены коричневое окрашивание зубов и рецессия, окаймленная лейкоплакией
+
+        </p>
+        <h3>Симптомы</h3>
+        <p>
+            - Плотное, грубое, иногда шероховатое или бородавчатое образование на нижней губе.
+            <br>- Может сопровождаться ощущением онемения, изменением чувствительности.
+            
+            
+        </p>
+
+        <h3>Причины</h3>
+        <p>
+            - Курение
+
+        </p>
+
+        <h3>Профилактика</h3>
+        <p>
+            - Отказ от курения
+            <br>- Бережное обращение с губами
+        </p>
+
+        <h3>Характер течения</h3>
+        <p>
+            - Кератоз является предраковым состоянием
+            <br>- В некоторых случаях может развиться плоскоклеточный рак губы                                             
+        </p>
+
+        <h3>Лечение кератоза нижней губы</h3>
+        <p>
+            - Консервативное лечение: использование кератолитических и противовоспалительных средств
+<br>- Хирургическое удаление измененных участков
+<br>- Радиотерапия
+
+        </p>
+
+    </section>
+
+    <script>
+        document.querySelector('h1').onclick = () => {
+            window.location.href = 'index.html'
+        }
+        function check_and_resize() {
+            let img = document.querySelector('img')
+            if(img.width >= window.innerWidth) {
+                img.style.width = '80%'
+            }
+        }
+
+        check_and_resize();
+
+        window.onresize = () => {
+            check_and_resize();
+        }
+    </script>
+</body>
+</html>

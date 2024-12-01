@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заболевания полости рта</title>
+    <style>
+        :root{
+            --green: rgb(0, 183, 165);
+        }
+        body {
+            margin: 0;
+        }
+        h1 {
+            text-align: center;
+            font-family: sans-serif;
+            background: var(--green);
+            color: white;
+            padding-block: 30px;
+            margin-top: 0;
+            cursor: pointer;
+        }
+        section {
+            position: relative;
+            width: min(80%, 1000px);
+            display: block;
+            margin: 0 auto;
+        }
+        img{
+            display: block;
+            margin: 0 auto;
+        }
+        @media(max-width: 800px) {
+            img{
+                width: 80%;
+            }
+        }
+        h2, h3, p {
+            font-family: sans-serif;
+        }
+        h2{
+            text-align: center;
+            font-size: 32px;
+        }
+
+        .ans-list{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 20px;
+            counter-reset: list-counter;
+        }
+
+
+        @media (width <= 1000px){
+            .ans-list{
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr 1fr 1fr 1fr;
+            }
+        }
+
+        .ans-list >  li{
+            list-style: none;
+        }
+
+        .ans-list > li::before{
+            content: counter(list-counter, upper-alpha) ") ";
+            counter-increment: list-counter;
+        }
+
+        .ans-list > li > label > div{
+            display: flex;
+        }
+
+        #test{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            box-sizing: border-box;
+            width: 100%;
+            position: relative;
+            padding: 100px;
+            padding-top: 0;
+            list-style:decimal;
+        }
+
+        @media (width <= 1000px){
+            #test{
+                padding: 40px;
+            }
+        }
+
+        img{
+            max-width: 300px;
+            max-height: 300px;
+        }
+
+        input{
+            accent-color: rgb(64, 128, 247);
+        }
+
+        button{
+            background-color: var(--green);
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            font-size: 30px;
+            text-decoration: none;
+            display: block;
+            margin: 0 auto;
+            cursor: pointer
+        }
+
+        body{
+            margin-bottom: 100px;
+        }
+
+        #result{
+            background-color: var(--green);
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            font-size: 30px;
+            text-decoration: none;
+            display: block;
+            margin: 20px auto;
+            font-size: 32px;
+            text-align: center;
+            width: fit-content;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        @media (width <= 1000px){
+            button, #result{
+                font-size: 20px;
+            }
+        }
+
+        #result[data-hide="true"]{
+            opacity: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>
+        Цифровой атлас периимплантитов и воспалительных заболеваний полости рта
+    </h1>
+    <h2>Тест</h2>
+    <ul id="test">
+    </ul>
+
+    <button>Ответить</button>
+
+    <section id="result" data-hide="true">
+        Ваш результат: 0/25
+    </section>
+
+    <script>
+        const DATA = [
+            ['Что такое кандидоз полости рта?',
+            'Вирусное заболевание',
+            'Поражение полости рта грибковой инфекцией',
+            'Бактериальная инфекция',
+            'Аллергическая реакция',
+            'B'
+            ],
+            ['Какое изображение иллюстрирует признаки бактериального стоматита?',
+            'images/a2.png',
+            'images/a1.png',
+            'images/a3.png',
+            'images/a4.png',
+            'A'
+            ],
+            ['Выберите изображения, которые  показывают симптомы протезного стоматита.',
+            'images/a5.png',
+            'images/a6.png',
+            'images/a7.png',
+            'images/a8.png',
+            'AB'
+            ],
+            ['Какой из перечисленных заболеваний связано с инфекцией, вызываемой гонококком?',
+            'Гонококковый фарингит',
+            'Аллергический стоматит',
+            'Меланоз курильщика',
+            'Острый герпетический гингивостоматит',
+            'A'
+            ],
+            ['Что такое острый герпетический  гингивостоматит?',
+            'Вирусное заболевание, вызываемое герпесом',
+            'Бактериальная инфекция',
+            'Грибковая инфекция',
+            'Аллергическая реакция',
+            'A'
+            ],
+            ['Какой из перечисленных типов кандидоза наблюдается у пациентов с ВИЧ/СПИД?',
+            'Острый герпетический гингивостоматит',
+            'Гиперпластический кандидоз',
+            'Протезный стоматит',
+            'Лейкоплакия',
+            'B',
+            ],
+            [
+                'Какой из следующих типов заболеваний является онкологическим?',
+                'Кандидоз',
+                'Веррукозная карцинома',
+                'Бактериальный стоматит',
+                'Герпетический стоматит',
+                'B'
+            ],
+            [
+                'Что представляет собой меланоз курильщика?',
+                'Грибковая инфекция',
+                'Воспалительное заболевание дёсен',
+                'Пигментация кожи и слизистых, связанная с курением',
+                'Бактериальная инфекция',
+                'C'
+            ],
+            [
+                'О каком заболевании идет речь, если в полости рта появляется белесоватосерая плёнка?',
+                'Лейкоплакия',
+                'Кандидоз',
+                'Герпетический стоматит',
+                'Альвеолит',
+                'A'
+            ],
+            [
+                'Что такое оральный первичный сифилис?',
+                'Вирусное заболевание',
+                'Бактериальное заболевание, проявляющееся в полости рта',
+                'Грибковая инфекция',
+                'Аллергическая реакция',
+                'B'
+            ],
+            [
+                'Какое заболевание представлено неходжкинской лимфомой?',
+                'Онкологическое заболевание лимфатической системы',
+                'Грибковая инфекция',
+                'Аллергическая реакция',
+                'Вирельное заболевание',
+                'A'
+            ],
+            [
+                'Какова основная причина альвеолита?',
+                'Неправильная гигиена полости рта',
+                'Инфекция после удаления зуба',
+                'Вирельная инфекция',
+                'Аллергическая реакция на пищу',
+                'B'
+            ],
+            [
+                'Выберите изображение с острым герпетическим гингивостоматитом?',
+                'images/a9.png',
+                'images/a10.png',
+                'images/a11.png',
+                'images/a12.png',
+                'D'
+            ],
+            [
+                'Выберите изображение с гиперпластическим кандидозом при СПИДЕ',
+                'images/a13.png',
+                'images/a14.png',
+                'images/a15.png',
+                'images/a16.png',
+                'A'
+            ],
+            [
+                'Выберите изображение с альвеолитом',
+                'images/a17.png',
+                'images/a18.png',
+                'images/a19.png',
+                'images/a20.png',
+                'B'
+            ],
+            [
+                'Какое воспаление изображено на рисунке images/a21.png',
+                'Оральный мукозит',
+                'Веррукозная карцинома',
+                'кандидоз',
+                'Острый герпетический гингивостоматит',
+                'A'
+            ],
+            [
+                'Основной возбудитель Актиномикоза полости рта',
+                'Actinomyces israelii',
+                'Mycobacterium tuberculosis',
+                'Porphyromonas gingivalis',
+                'Treponema denticola',
+                'A'
+            ],
+            [
+                'Какое хроническое инфекционное заболевание указано на фото images/a22.png',
+                'Герпес',
+                'Актиномикоз',
+                'Туберкулез полости рта',
+                'Сифилис полости рта',
+                'B'
+            ],
+            [
+                'Какое воспаление указано на фото images/a23.png',
+                'Гонококковый фарингит',
+                'Гиперпластический кандидоз',
+                'Периимплантит с мукозитом',
+                'Спонгиотическая гиперплазия десны',
+                'B'
+            ],
+            [
+                'Какой воспалительный процесс указан на фото images/a24.png',
+                'Пародонтит',
+                'Гингивит',
+                'Периимплантит',
+                'Кандидоз полости рта',
+                'B'
+            ],
+            [
+                'На какой фотографии указан сифилис полости рта',
+                'images/a25.png',
+                'images/a26.png',
+                'images/a27.png',
+                'images/a28.png',
+                'B'
+            ],
+            [
+                'Какое воспалительное заболевание указано на фото images/a29.png',
+                'Гингивит',
+                'Пародонтит',
+                'Спонгиотическая гиперплазия десны',
+                'Острый герпетический гингивостоматит',
+                'B'
+            ],
+            [
+                'Укажите фото с гингивитом',
+                'images/a30.png',
+                'images/a31.png',
+                'images/a32.png',
+                'images/a33.png',
+                'D'
+            ],
+            [
+                'Какой воспалительный процесс указан на фото images/a34.png',
+                'Кератоз',
+                'Спонгиотическая гиперплазия десны',
+                'Неходжкинская лимфома',
+                'Меланоз Курильщика',
+                'B'
+            ],
+            [
+                'На каком фото указана Костная хористома языка?',
+                'images/a35.png',
+                'images/a36.png',
+                'images/a37.png',
+                'images/a38.png',
+                'A'
+            ]
+        ]
+
+        const test = document.querySelector('#test')
+        for(let i = 0; i < DATA.length; i++) {
+            /**
+             * @typedef {string} ask
+             * */
+            const ask = DATA[i][0]
+            const varians = [DATA[i][1], DATA[i][2], DATA[i][3], DATA[i][4]]
+            const ans = DATA[i][5]
+            let li = document.createElement('li')
+            let t = DATA[i][0];
+            // li.innerHTML = `<p>${DATA[i][0]}</p>`
+            let index_of_image = ask.indexOf('images/a')
+            let img = '';
+            if(index_of_image != -1){
+                img = `<img src="${ask.slice(index_of_image, ask.indexOf('.png') + 4)}">`
+                t = t.slice(0, index_of_image);
+            }
+            li.innerHTML = `<div><p>${t}</p>${img}</div>`
+            let type = 'radio';
+            if(ans.length > 1) {
+                type = 'checkbox'
+            }
+            let ol = document.createElement('ol')
+            ol.classList.add('ans-list')
+            const VALUES = 'ABCD'
+            for(let j = 0; j < varians.length; j++) {
+                let li = document.createElement('li')
+                let i_of_image = varians[j].indexOf('images/a')
+                let img = '';
+                let t_ = varians[j];
+                if(i_of_image != -1){
+                    img = `<img src="${varians[j].slice(i_of_image, varians[j].indexOf('.png') + 4)}">`
+                    t_ = t_.slice(0, i_of_image);
+                }
+                li.innerHTML = `<label><input type="${type}" value="${VALUES[j]}" name="ask-${i}"><div>${t_}${img}</div></label>`
+                ol.append(li)
+            }
+            li.append(ol)
+            test.append(li)
+        }
+
+        const btn = document.querySelector('button')
+        btn.onclick = () => {
+            const answers = []
+            const lis = document.querySelectorAll('.ans-list')
+            lis.forEach(row => {
+                const inputs = row.querySelectorAll('input')
+                let str = ''
+                inputs.forEach(input => {
+                    if(input.checked) {
+                        str += input.value
+                    }
+                })
+                answers.push(str)
+            })
+            let score = 0;
+            for(let i = 0; i < answers.length; i++) {
+                if(answers[i] == DATA[i][5]) {
+                    score++;
+                }
+            }
+
+            const res = document.querySelector('#result')
+            res.innerHTML = `Ваша оценка ${score}/${answers.length}`
+            res.dataset.hide = "false"
+            // alert(`Ваша оценка ${score}/${answers.length}`)
+        }
+    </script>
+
+    <script>
+        document.querySelector('h1').onclick = () => {
+            window.location.href = 'index.html'
+        }
+    </script>
+</body>
+</html>

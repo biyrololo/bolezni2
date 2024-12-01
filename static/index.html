@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заболевания полости рта</title>
+    <style>
+        :root{
+            --green: rgb(0, 183, 165);
+        }
+        body {
+            margin: 0;
+        }
+        h1 {
+            text-align: center;
+            font-family: sans-serif;
+            background: var(--green);
+            color: white;
+            padding-block: 30px;
+            margin-top: 0;
+            cursor: pointer;
+        }
+        section {
+            position: relative;
+            width: min(80%, 500px);
+            display: block;
+            margin: 0 auto;
+        }
+        #clear {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        input {
+            width: 100%;
+            font-size: 1.5rem;
+            font-family: sans-serif;
+            padding: 10px;
+            box-sizing: border-box;
+            outline-color: var(--green);
+            padding-right: 50px;
+            box-sizing: border-box;
+        }
+
+        #grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            padding: 1rem;
+            width: min(80%, 1000px);
+            margin: 0 auto;
+        }
+
+        @media (max-width: 800px) {
+            #grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        #grid div, .section{
+            border: 1px solid var(--green);
+            border-radius: 5px;
+            text-align: center;
+            padding: 20px;
+            font-family: sans-serif;
+        }
+
+        *[data-hide="true"] {
+            display: none;
+        }
+
+        .section{
+            width: 200px;
+            margin: 0 auto 20px auto;
+            padding: 15px;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        Цифровой атлас периимплантитов и воспалительных заболеваний полости рта
+    </h1>
+    <div class="section">
+        <a href="test.html">Тест</a>
+    </div>
+    <div class="section">
+        <a href="statii.html">Статьи</a>
+    </div>
+    <section>
+        <input type="text" placeholder="Поиск" autocomplete="off">
+        <div data-hide="true" id="clear">
+            <svg width="40" height="40" viewbox="0 0 40 40"><path d="M 10,10 L 30,30 M 30,10 L 10,30" stroke="black" stroke-width="4" /></svg>
+        </div>
+    </section>
+    <section id="grid">
+        <div>
+            <a href="periimplantit_s_mukozitom.html">
+                Периимплантит с мукозитом
+            </a>
+        </div>
+        <div>
+            <a href="periimplantit_s_mukozitom2.html">
+                Периимплантит с мукозитом 
+            </a>
+        </div>
+        <div>
+            <a href="periimplantit.html">
+                Периимплантит
+            </a>
+        </div>
+        <div>
+            <a href="sifilis_polosti_rta.html">
+                Сифилис полости рта
+            </a>
+        </div>
+        <div>
+            <a href="parodontit.html">
+                Пародонтит
+            </a>
+        </div>
+        <div>
+            <a href="gingivit.html">
+                Гингивит
+            </a>
+        </div>
+        <div>
+            <a href="keratoz_nizhnej_guby.html">
+                Кератоз нижней губы
+            </a>
+        </div>
+        <div>
+            <a href="spongiotik_hyperplazija_desny.html">
+                Спонгиотическая гиперплазия десны
+            </a>
+        </div>
+        <div>
+            <a href="kostnaia_horyzom.html">
+                Костная хористома языка
+            </a>
+        </div>
+        <div>
+            <a href="aktinomikoz.html">
+                Актиномикоз полости рта
+            </a>
+        </div>
+        <div>
+            <a href="tuberkuliz.html">
+                Туберкулез полости рта
+            </a>
+        </div>
+        <div>
+            <a href="kandidoz.html">
+                Кандидоз
+            </a>
+        </div>
+        <!-- 
+        Бактериальный стоматит
+        Протезный стоматит
+        Гонококковый фарингит
+        Острый герпетический гингивостоматит
+        Гиперпластический кандидоз при СПИДе
+        Оральный мукозит
+        Меланоз курильщика
+        Веррукозная карцинома
+        Меланотическое пятно
+        Оральный первичный сифилис
+        Герпетический стоматит
+        Неходжкинская лимфома
+        Лейкоплакия
+        Альвеолит
+        -->
+        <div>
+            <a href="bakterialnyj_stomatit.html">
+                Бактериальный стоматит
+            </a>
+        </div>
+        <div>
+            <a href="proteznyj_stomatit.html">
+                Протезный стоматит
+            </a>
+        </div>
+        <div>
+            <a href="gonokokkovyy_faringit.html">
+                Гонококковый фарингит
+            </a>
+        </div>
+        <div>
+            <a href="ostroyj_gerpeticheskij_gingivostomatit.html">
+                Острый герпетический гингивостоматит
+            </a>
+        </div>
+        <div>
+            <a href="hiperplasticheskij_kandidoz.html">
+                Гиперпластический кандидоз при СПИДе
+            </a>
+        </div>
+        <div>
+            <a href="oralnyj_mukozit.html">
+                Оральный мукозит
+            </a>
+        </div>
+        <div>
+            <a href="melanoz_kurishchika.html">
+                Меланоз курильщика
+            </a>
+        </div>
+        <div>
+            <a href="verrukoznaya_karcinoma.html">
+                Веррукозная карцинома
+            </a>
+        </div>
+        <div>
+            <a href="melanoticheskoe_pyatno.html">
+                Меланотическое пятно
+            </a>
+        </div>
+        <div>
+            <a href="oralnyj_pervichnyj_sifilis.html">
+                Оральный первичный сифилис
+            </a>
+        </div>
+        <div>
+            <a href="gerpeticheskij_stomatit.html">
+                Герпетический стоматит
+            </a>
+        </div>
+        <div>
+            <a href="nehozhkinskaya_limfoma.html">
+                Неходжкинская лимфома
+            </a>
+        </div>
+        <div>
+            <a href="leikoplik.html">
+                Лейкоплакия
+            </a>
+        </div>
+        <!--  -->
+        <div>
+            <a href="alveolit.html">
+                Альвеолит
+            </a>
+        </div>
+
+
+    </section>
+    <script>
+        document.querySelector('h1').onclick = () => {
+            window.location.href = 'index.html'
+        }
+
+        const input = document.querySelector('input');
+        const btn = document.querySelector('#clear');
+        btn.onclick = () => {
+            input.value = '';
+            btn.dataset.hide = true;
+            const divs = document.querySelectorAll('#grid div');
+            divs.forEach(div => {
+                div.dataset.hide = false;
+            });
+        }
+        input.oninput = () => {
+            const value = input.value.toLowerCase();
+            if(value) {
+                btn.dataset.hide = false;
+            } else {
+                btn.dataset.hide = true;
+            }
+            const divs = document.querySelectorAll('#grid div');
+            divs.forEach(div => {
+                const name = div.querySelector('a').textContent.toLowerCase();
+                div.dataset.hide = !name.includes(value);
+            });
+        }
+    </script>
+</body>
+</html>

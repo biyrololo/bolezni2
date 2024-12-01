@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заболевания полости рта</title>
+    <style>
+        :root{
+            --green: rgb(0, 183, 165);
+        }
+        body {
+            margin: 0;
+        }
+        h1 {
+            text-align: center;
+            font-family: sans-serif;
+            background: var(--green);
+            color: white;
+            padding-block: 30px;
+            margin-top: 0;
+            cursor: pointer;
+        }
+        section {
+            position: relative;
+            width: min(80%, 1000px);
+            display: block;
+            margin: 0 auto;
+        }
+        img{
+            display: block;
+            margin: 0 auto;
+        }
+        @media(max-width: 800px) {
+            img{
+                width: 80%;
+            }
+        }
+        h2, h3, p {
+            font-family: sans-serif;
+        }
+        h2{
+            text-align: center;
+            font-size: 32px;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        Цифровой атлас периимплантитов и воспалительных заболеваний полости рта
+    </h1>
+
+    <div>
+        <img src="images/4.png" alt="">
+    </div>
+
+    <section>
+        <h2>Сифилис полости рта</h2>
+        <h3>Диагноз</h3>
+        <p>
+            - Сифилис полости рта
+             это инфекционное заболевание, вызываемое бледной трепонемой 
+
+        </p>
+        <h3>Микрофлора</h3>
+        <p>
+            - Возбудитель - Treponema pallidum, спирохета.
+<br>- Это облигатный анаэробный патоген, который не культивируется на обычных питательных средах.
+        </p>
+
+        <h3>Причины</h3>
+        <p>- Передача половым путем, при прямом контакте со слизистыми оболочками полости рта инфицированного человека.
+            <br>- Возможна вертикальная передача от инфицированной матери к плоду.
+        </p>
+
+        <h3>Симптомы</h3>
+        <p>
+            Первичный сифилис: <br>
+            - Твердый шанкр - язвенное поражение красной каймы губ или слизистой оболочки полости рта.
+
+        </p>
+
+        <h3>Профилактика</h3>
+        <p>Адекватное лечение на основе антибиотиков (пенициллин) очень важны для предотвращения осложнений сифилиса.</p>
+
+    </section>
+
+    <script>
+        document.querySelector('h1').onclick = () => {
+            window.location.href = 'index.html'
+        }
+        function check_and_resize() {
+            let img = document.querySelector('img')
+            if(img.width >= window.innerWidth) {
+                img.style.width = '80%'
+            }
+        }
+
+        check_and_resize();
+
+        window.onresize = () => {
+            check_and_resize();
+        }
+    </script>
+</body>
+</html>

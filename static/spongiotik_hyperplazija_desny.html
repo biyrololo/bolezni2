@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заболевания полости рта</title>
+    <style>
+        :root{
+            --green: rgb(0, 183, 165);
+        }
+        body {
+            margin: 0;
+        }
+        h1 {
+            text-align: center;
+            font-family: sans-serif;
+            background: var(--green);
+            color: white;
+            padding-block: 30px;
+            margin-top: 0;
+            cursor: pointer;
+        }
+        section {
+            position: relative;
+            width: min(80%, 1000px);
+            display: block;
+            margin: 0 auto;
+        }
+        img{
+            display: block;
+            margin: 0 auto;
+        }
+        @media(max-width: 800px) {
+            img{
+                width: 80%;
+            }
+        }
+        h2, h3, p {
+            font-family: sans-serif;
+        }
+        h2{
+            text-align: center;
+            font-size: 32px;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        Цифровой атлас периимплантитов и воспалительных заболеваний полости рта
+    </h1>
+
+    <div>
+        <img src="images/8.png" alt="">
+    </div>
+
+    <section>
+        <h2>Спонгиотическая гиперплазия десны</h2>
+        <h3>Диагноз</h3>
+        <p>
+            - Спонгиотическая гиперплазия десны - доброкачественное разрастание эпителия десны, характеризующееся отёком и умеренной гиперплазией.                                                       
+        </p>
+        <h3>Симптомы</h3>
+        <p>
+            -Мягкое, болезненное, отёчное разрастание десневого края
+<br>-Cопровождается кровоточивостью десен
+<br>- Изменение цвета десны от розового до синюшного цвета
+            
+        </p>
+
+        <h3>Причины</h3>
+        <p>
+            - Травматические воздействия на десну (неправильная гигиена)
+<br>- Реакция на некоторые лекарственные препараты
+
+        </p>
+
+        <h3>Профилактика</h3>
+        <p>
+            - Тщательный уход за полостью рта
+            <br>- Устранение травмирующих факторов
+            
+        </p>
+
+        <h3>Характер течения</h3>
+        <p>
+            - Спонгиотическая гиперплазия - хроническое, доброкачественное заболевание
+            <br>- Может иметь периодические обострения и ремиссии
+            <br>- Поддаётся лечению, в некоторых случаях требуется хирургическое удаление                      
+        </p>
+
+        <h3>Лечение</h3>
+        <p>
+            - Устранение травмирующих факторов (улучшение гигиены)
+            <br>- Хирургическое удаление разросшихся участков десны (гингивэктомия)
+            
+        </p>
+
+    </section>
+
+    <script>
+        document.querySelector('h1').onclick = () => {
+            window.location.href = 'index.html'
+        }
+
+        function check_and_resize() {
+            let img = document.querySelector('img')
+            if(img.width >= window.innerWidth) {
+                img.style.width = '80%'
+            }
+        }
+
+        check_and_resize();
+
+        window.onresize = () => {
+            check_and_resize();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заболевания полости рта</title>
+    <style>
+        :root{
+            --green: rgb(0, 183, 165);
+        }
+        body {
+            margin: 0;
+        }
+        h1 {
+            text-align: center;
+            font-family: sans-serif;
+            background: var(--green);
+            color: white;
+            padding-block: 30px;
+            margin-top: 0;
+            cursor: pointer;
+        }
+        section {
+            position: relative;
+            width: min(80%, 1000px);
+            display: block;
+            margin: 0 auto;
+        }
+        img{
+            display: block;
+            margin: 0 auto;
+        }
+        @media(max-width: 800px) {
+            img{
+                width: 80%;
+            }
+        }
+        h2, h3, p {
+            font-family: sans-serif;
+        }
+        h2{
+            text-align: center;
+            font-size: 32px;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        Цифровой атлас периимплантитов и воспалительных заболеваний полости рта
+    </h1>
+
+    <div>
+        <img src="images/3.png" alt="">
+    </div>
+
+    <section>
+        <h2>ПЕРИИМПЛАНТИТ</h2>
+        <h3>Диагноз</h3>
+        <p>
+            -ПЕРИИМПЛАНТИТ
+        </p>
+        <h3>
+            Причины
+        </h3>
+        <p>
+            - Неудовлетворительная гигиена полости рта
+            <br>- Неправильная установка или нагрузка на имплантат
+            <br>- Генетическая предрасположенность
+
+        </p>
+        <h3>Симптомы</h3>
+        <p>
+            - Покраснение и отек слизистой оболочки вокруг имплантата
+            <br>- Кровоточивость при зондировании
+            <br>- Гнойные выделения
+            <br>- Болевые ощущения
+            <br>-Потеря костной ткани
+            <br>- Рецессия десны
+        </p>
+
+        <h3>Микрофлора</h3>
+        <p>
+            - Анаэробные бактерии: Porphyromonas gingivalis, Tannerella forsythia, Treponema denticola
+            <br>- Также Staphylococcus aureus, Enterobacteriaceae, Candida spp.
+        </p>
+
+        <h3>Профилактика</h3>
+        <p>- Тщательная гигиена полости рта, регулярные профессиональные осмотры и чистки
+            <br>- Контроль прикуса и нагрузки на имплантат
+        </p>
+
+        <h3>Характер течения</h3>
+        <p>- Хроническое прогрессирующее течение</p>
+        <h3>Лечение</h3>
+        <p>
+            -Скорее всего имплантант извлекается из-за большого дефекта, половина имплантата оголена
+            <br>-Делается НКР(направленная костная регенерация)
+            <br>-Отсрочно ставится имплантат
+            <br>-В некоторых случаях делается исключение (перекрыть бугром и провести одномоментную имплантацию)
+
+        </p>
+
+    </section>
+
+    <script>
+        document.querySelector('h1').onclick = () => {
+            window.location.href = 'index.html'
+        }
+        function check_and_resize() {
+            let img = document.querySelector('img')
+            if(img.width >= window.innerWidth) {
+                img.style.width = '80%'
+            }
+        }
+
+        check_and_resize();
+
+        window.onresize = () => {
+            check_and_resize();
+        }
+    </script>
+</body>
+</html>

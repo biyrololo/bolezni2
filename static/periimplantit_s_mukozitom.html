@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заболевания полости рта</title>
+    <style>
+        :root{
+            --green: rgb(0, 183, 165);
+        }
+        body {
+            margin: 0;
+        }
+        h1 {
+            text-align: center;
+            font-family: sans-serif;
+            background: var(--green);
+            color: white;
+            padding-block: 30px;
+            margin-top: 0;
+            cursor: pointer;
+        }
+        section {
+            position: relative;
+            width: min(80%, 1000px);
+            display: block;
+            margin: 0 auto;
+        }
+        img{
+            display: block;
+            margin: 0 auto;
+        }
+        @media(max-width: 800px) {
+            img{
+                width: 80%;
+            }
+        }
+        h2, h3, p {
+            font-family: sans-serif;
+        }
+        h2{
+            text-align: center;
+            font-size: 32px;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        Цифровой атлас периимплантитов и воспалительных заболеваний полости рта
+    </h1>
+
+    <div>
+        <img src="images/1.png" alt="">
+    </div>
+
+    <section>
+        <h2>Периимплантит с мукозитом</h2>
+        <h3>Диагноз</h3>
+        <p>
+            Периимплантит с мукозитом - это воспаление слизистой оболочки вокруг дентального имплантата, без вовлечения в процесс костной ткани.
+        </p>
+        <h3>Микрофлора</h3>
+        <p>
+            - При периимплантите мукозите часто выявляются анаэробные бактерии, такие как Porphyromonas gingivalis, Tannerella forsythia, Treponema denticola.
+            <br>
+            - Также могут присутствовать Staphylococcus aureus, Enterobacteriaceae и Candida spp.
+        </p>
+        <h3>
+            Причины
+        </h3>
+        <p>
+            - Нет кератизированной десны (неподвижной слизистой) <br>
+            - Неудовлетворительная гигиена полости рта<br>
+            - Плохое качество установки имплантата<br>
+            - Перегрузка имплантата<br>
+            - Генетическая предрасположенность<br>
+
+        </p>
+        <h3>
+            Симптомы
+        </h3>
+        <p>            
+            - Запах из полости рта<br>
+            - Покраснение и отек слизистой оболочки<br>
+            - Кровоточивость при зондировании<br>
+            - Гнойные выделения<br>
+            - Болезненые ощущения<br>
+            - Галитоз<br>
+        </p>
+        <h3>
+            Жалобы
+        </h3>
+        <p>
+            - Жалобы на попадание пищи в пародонтальный карман<br>
+            - Подвижность имплантата
+
+        </p>
+        <h3>Профилактика</h3>
+        <p>
+            -Пластика слизистой методом закладки либо при помощи трансплантата
+        </p>
+    </section>
+
+    <script>
+        document.querySelector('h1').onclick = () => {
+            window.location.href = 'index.html'
+        }
+        function check_and_resize() {
+            let img = document.querySelector('img')
+            if(img.width >= window.innerWidth) {
+                img.style.width = '80%'
+            }
+        }
+
+        check_and_resize();
+
+        window.onresize = () => {
+            check_and_resize();
+        }
+    </script>
+</body>
+</html>
